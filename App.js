@@ -6,6 +6,7 @@
  * @flow strict-local
  */
 // SELAMUN ALEYKÜM
+//aleykum selam
 import React from 'react';
 import type {Node} from 'react';
 import {
