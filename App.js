@@ -5,7 +5,7 @@
  * @format
  * @flow strict-local
  */
-
+// SELAMUN ALEYKÜM
 import React from 'react';
 import type {Node} from 'react';
 import {
