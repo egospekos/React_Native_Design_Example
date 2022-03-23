@@ -5,6 +5,7 @@ import {
   View,
   Button,
   ScrollView,
+  FlatList,
 } from 'react-native';
 
 
@@ -28,11 +29,25 @@ const App = () => {
     <View>
       <View style={homeStyles.container}>
         <View style={homeStyles.topBar}>
+        
           <Text stlye={homeStyles.appName}>project b</Text>
         </View>
         <View style={homeStyles.filterBar}>
           <Text stlye={homeStyles.appName}>serach box / filtering</Text>
         </View>
+        <ScrollView horizontal={true}>
+          {
+            Events.map((event)=>{
+              return(
+                <View key={event.id}>
+                  <View style={categoryStyles.card}>
+                    <Text>{event.category}</Text>
+                  </View>
+                </View>
+              )
+            })
+          }
+        </ScrollView>
         <ScrollView>
           {
             Events.map((event)=>{
@@ -141,6 +156,16 @@ const homeStyles = StyleSheet.create({
     alignItems:'center',
     backgroundColor:'aquamarine',
   },
+});
+const categoryStyles = StyleSheet.create({
+  card:{
+    height:100,
+    width:100,
+    backgroundColor:'darkgoldenrod',
+    margin:5,
+    alignItems:'center',
+    justifyContent:'center',
+  }
 });
 
 export default App;
