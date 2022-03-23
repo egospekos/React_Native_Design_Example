@@ -20,88 +20,57 @@ const App = () => {
     {id:4,name:'bişi3',startDate:'16-16-2016',endDate:'7-7-2017',description:'kpss çalışcam 1 hafta eşlik edecek badi arıyorum',userid:2,active:true,category:'ders'},
   ])
 
-  const DATA=[
-    {
-      title:'bişi 1',
-      data:['item1-1','item1-2','item1-3','item1-4']
-    },
-    {
-      title:'bişi 2',
-      data:['item2-1','item2-2','item2-3','item2-4']
-    },
-    {
-      title:'bişi 3',
-      data:['item3-1','item3-2','item3-3','item3-4']
-    },
-    {
-      title:'bişi 4',
-      data:['item4-1','item4-2','item4-3','item4-4']
-    },
-  ]
+  const [categories,setcategories] = useState([
+    {id:1,name:'Kahve masasında kadın eksik',startDate:'16-16-2016',endDate:'7-7-2017',description:'Akşam arabicada toplanıyoruz arkadaşlar. Ama full erkeğiz bi tane karı lazım gelmek isteyen başvuru atsın herkesi kabul ediyoruz.',userid:2,active:true,category:'kahve'},
+  ])
 
   return (
     <View>
-
-      <ScrollView style={styles.body}>
-        {
-          Events.map((event)=>{
-            return(
-              <View key={event.id}>
-                <View style={styles.card}>
-                  <View style={styles.cardHeader}>
-                    <Text style={styles.cardName}>{event.name}</Text>
-                    <View style={styles.cardCategory}>
-                      <Text>{event.category}</Text>
+      <View style={homeStyles.container}>
+        <View style={homeStyles.topBar}>
+          <Text stlye={homeStyles.appName}>project b</Text>
+        </View>
+        <View style={homeStyles.filterBar}>
+          <Text stlye={homeStyles.appName}>serach box / filtering</Text>
+        </View>
+        <ScrollView>
+          {
+            Events.map((event)=>{
+              return(
+                <View key={event.id}>
+                  <View style={eventStyles.card}>
+                    <View style={eventStyles.cardHeader}>
+                      <Text style={eventStyles.cardName}>{event.name}</Text>
+                      <View style={eventStyles.cardCategory}>
+                        <Text>{event.category}</Text>
+                      </View>
                     </View>
-                  </View>
-                  <View style={styles.cardBody}>
-                    <Text style={styles.cardDesc}>{event.description}</Text>
-                  </View>
-                  <View style={styles.cardFooter}>
-                    <View>
-                      <Text style={styles.comments}>Yorumlar(3)</Text>
+                    <View style={eventStyles.cardBody}>
+                      <Text style={eventStyles.cardDesc}>{event.description}</Text>
                     </View>
-                    <View style={styles.favButton}>
-                      <Button title='♥'></Button>
-                    </View>
-                    <View style={styles.applyButton}>
-                      <Button title='Başvur'></Button>
+                    <View style={eventStyles.cardFooter}>
+                      <View>
+                        <Text style={eventStyles.comments}>Yorumlar(3)</Text>
+                      </View>
+                      <View style={eventStyles.favButton}>
+                        <Button title='♥'></Button>
+                      </View>
+                      <View style={eventStyles.applyButton}>
+                        <Button title='Başvur'></Button>
+                      </View>
                     </View>
                   </View>
                 </View>
-              </View>
-            )
-          })
-        }
-      </ScrollView>
-
-      {/* <View style={styles.card}>
-        <View style={styles.cardHeader}>
-          <Text style={styles.cardName}>Kahve masasında kadın eksik</Text>
-          <View style={styles.cardCategory}>
-            <Text>Kahve</Text>
-          </View>
-        </View>
-        <View style={styles.cardBody}>
-          <Text style={styles.cardDesc}>Akşam arabicada toplanıyoruz arkadaşlar. Ama full erkeğiz bi tane karı lazım gelmek isteyen başvuru atsın herkesi kabul ediyoruz.</Text>
-        </View>
-        <View style={styles.cardFooter}>
-          <View>
-            <Text style={styles.comments}>Yorumlar(3)</Text>
-          </View>
-          <View style={styles.favButton}>
-            <Button title='♥'></Button>
-          </View>
-          <View style={styles.applyButton}>
-            <Button title='Başvur'></Button>
-          </View>
-        </View>
-      </View> */}
+              )
+            })
+          }
+        </ScrollView>
+      </View>
     </View>
   );
 };
 
-const styles = StyleSheet.create({
+const eventStyles = StyleSheet.create({
   card:{
     margin:5,
     backgroundColor:'#000000',
@@ -154,6 +123,23 @@ const styles = StyleSheet.create({
     right:'75%',
     fontStyle:'italic',
     color:'white',
+  },
+});
+const homeStyles = StyleSheet.create({
+  container:{
+  },
+  topBar:{
+    justifyContent:'center',
+    alignItems:'center',
+    backgroundColor:'aqua',
+  },
+  appName:{
+    color:'#ffffff',
+  },
+  filterBar:{
+    justifyContent:'center',
+    alignItems:'center',
+    backgroundColor:'aquamarine',
   },
 });
 
