@@ -25,13 +25,13 @@ const likeEvent = (event_id) => {
   console.log(event_id+" no'lu event BEĞENİLDİ");
 }
 
-const App = () => {
+const HomeScreen = () => {
   const [Events,setEvents] = useState([
     {id:1,name:'Kahve masasında kadın eksik',startDate:'16-16-2016',endDate:'7-7-2017',description:'Akşam arabicada toplanıyoruz arkadaşlar. Ama full erkeğiz bi tane karı lazım gelmek isteyen başvuru atsın herkesi kabul ediyoruz.',userid:2,active:true,category:'kahve'},
 
     {id:2,name:'bişi',startDate:'16-16-2016',endDate:'7-7-2017',description:'11-11 halısaha yapcaz 21 kişi eksik',userid:2,active:true,category:'halısaha'},
 
-    {id:3,name:'bişi2',startDate:'16-16-2016',endDate:'7-7-2017',description:'fuckbadi arıyom',userid:2,active:true,category:'sex'},
+    {id:3,name:'bişi2',startDate:'16-16-2016',endDate:'7-7-2017',description:'badi arıyom',userid:2,active:true,category:'sosyal'},
 
     {id:4,name:'bişi3',startDate:'16-16-2016',endDate:'7-7-2017',description:'kpss çalışcam 1 hafta eşlik edecek badi arıyorum',userid:2,active:true,category:'ders'},
 
@@ -43,7 +43,7 @@ const App = () => {
   ])
 
   const [categories,setcategories] = useState([
-    {id:1,name:'Kahve masasında kadın eksik',startDate:'16-16-2016',endDate:'7-7-2017',description:'Akşam arabicada toplanıyoruz arkadaşlar. Ama full erkeğiz bi tane karı lazım gelmek isteyen başvuru atsın herkesi kabul ediyoruz.',userid:2,active:true,category:'kahve'},
+    {id:15,name:'Kahve masasında kadın eksik',startDate:'16-16-2016',endDate:'7-7-2017',description:'Akşam arabicada toplanıyoruz arkadaşlar. Ama full erkeğiz bi tane karı lazım gelmek isteyen başvuru atsın herkesi kabul ediyoruz.',userid:2,active:true,category:'kahve'},
   ])
 
 
@@ -87,7 +87,9 @@ const App = () => {
                     <View style={eventStyles.card}>
                       <View style={eventStyles.cardHeader}>
                         <Text style={eventStyles.cardName}>{event.name}</Text>
-                        <TouchableOpacity>
+                        <TouchableOpacity
+                        onPress={()=>{selectCategory(event.id)}}
+                        >
                           <View style={eventStyles.cardCategory}>
                             <Text>{event.category}</Text>
                           </View>
@@ -210,6 +212,7 @@ const homeStyles = StyleSheet.create({
     justifyContent:'center',
     alignItems:'center',
     backgroundColor:'aqua',
+    height:35,
   },
   appName:{
     color:'#ffffff',
@@ -218,6 +221,7 @@ const homeStyles = StyleSheet.create({
     justifyContent:'center',
     alignItems:'center',
     backgroundColor:'aquamarine',
+    height:35,
   },
 });
 const categoryStyles = StyleSheet.create({
@@ -228,7 +232,8 @@ const categoryStyles = StyleSheet.create({
     margin:5,
     alignItems:'center',
     justifyContent:'center',
+    borderRadius:10,
   }
 });
 
-export default App;
+export default HomeScreen;
