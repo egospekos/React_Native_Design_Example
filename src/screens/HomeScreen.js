@@ -27,17 +27,15 @@ const likeEvent = (event_id) => {
 
 const HomeScreen = () => {
   const [Events,setEvents] = useState([
-    {id:1,name:'Kahve masasında kadın eksik',startDate:'16-16-2016',endDate:'7-7-2017',description:'Akşam arabicada toplanıyoruz arkadaşlar. Ama full erkeğiz bi tane karı lazım gelmek isteyen başvuru atsın herkesi kabul ediyoruz.',userid:2,active:true,category:'kahve'},
+    {id:1,name:'Arkadaşlarımızla kahve içiyoruz',startDate:'16-16-2016',endDate:'7-7-2017',description:'Akşam kahvecide toplanıyoruz. Katılmak isteyenler gelebilir.',userid:2,active:true,category:'kahve'},
 
-    {id:2,name:'bişi',startDate:'16-16-2016',endDate:'7-7-2017',description:'11-11 halısaha yapcaz 21 kişi eksik',userid:2,active:true,category:'halısaha'},
+    {id:2,name:'Futbol maçı',startDate:'16-16-2016',endDate:'7-7-2017',description:'11-11 halısaha yapacağız kalecimiz eksik',userid:3,active:true,category:'halısaha'},
 
-    {id:3,name:'bişi2',startDate:'16-16-2016',endDate:'7-7-2017',description:'badi arıyom',userid:2,active:true,category:'sosyal'},
+    {id:3,name:'Ders çalışma',startDate:'16-16-2016',endDate:'7-7-2017',description:'kpss çalışcam 1 hafta kütüphanede eşlik edecek badi arıyorum',userid:4,active:true,category:'ders'},
 
-    {id:4,name:'bişi3',startDate:'16-16-2016',endDate:'7-7-2017',description:'kpss çalışcam 1 hafta eşlik edecek badi arıyorum',userid:2,active:true,category:'ders'},
+    {id:4,name:'Ders çalışma',startDate:'16-16-2016',endDate:'7-7-2017',description:'kpss çalışcam 1 hafta kütüphanede eşlik edecek badi arıyorum',userid:5,active:true,category:'ders'},
 
-    {id:5,name:'bişi3',startDate:'16-16-2016',endDate:'7-7-2017',description:'kpss çalışcam 1 hafta eşlik edecek badi arıyorum',userid:2,active:true,category:'ders'},
-
-    {id:6,name:'bişi3',startDate:'16-16-2016',endDate:'7-7-2017',description:'kpss çalışcam 1 hafta eşlik edecek badi arıyorum',userid:2,active:true,category:'ders'},
+    {id:5,name:'Ders çalışma',startDate:'16-16-2016',endDate:'7-7-2017',description:'kpss çalışcam 1 hafta kütüphanede eşlik edecek badi arıyorum',userid:6,active:true,category:'ders'},
 
     
   ])
