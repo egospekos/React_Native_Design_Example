@@ -23,7 +23,12 @@ const likeEvent = (event_id) => {
   console.log(event_id+" no'lu event BEĞENİLDİ");
 }
 
-export default function OutgoingsScreen(){
+export default function OutgoingsScreen({navigation}){
+  const NavToEventDetails=(event_id)=>{
+    console.log(event_id+" no'lu EVENT");
+    navigation.navigate('EventDetails');
+  }
+
   const [Events,setEvents] = useState([
     {id:1,name:'Arkadaşlarımızla kahve içiyoruz',startDate:'16-16-2016',endDate:'7-7-2017',insanbir:'Oğuz Türk',insaniki:'Egemen Aydın',userid:2,active:true,category:'kahve'},
   
@@ -35,7 +40,7 @@ export default function OutgoingsScreen(){
             Events.map((event)=>{
               return(
                 <TouchableOpacity
-                onPress={()=>{selectEvent(event.id)}}
+                onPress={()=>{NavToEventDetails(event.id)}}
                 >
 
                   <View key={event.id}>

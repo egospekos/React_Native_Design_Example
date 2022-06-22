@@ -11,6 +11,8 @@ import {
 } from 'react-native';
 //import { TextInput } from 'react-native-gesture-handler';
 
+
+
 const selectEvent = (event_id) => {
   console.log(event_id+" no'lu EVENT");
 }
@@ -27,7 +29,16 @@ const likeEvent = (event_id) => {
   console.log(event_id+" no'lu event BEĞENİLDİ");
 }
 
-const HomeScreen = () => {
+const HomeScreen = ({navigation}) => {
+  const NavToEventCreate=()=>{
+    navigation.navigate('CreateEvent');
+  }
+
+  const NavToEventDetails=(event_id)=>{
+    console.log(event_id+" no'lu EVENT");
+    navigation.navigate('EventDetails');
+  }
+
   const [Events,setEvents] = useState([
     {id:1,name:'Arkadaşlarımızla kahve içiyoruz',startDate:'16-16-2016',endDate:'7-7-2017',description:'Akşam kahvecide toplanıyoruz. Katılmak isteyenler gelebilir.',userid:2,active:true,category:'kahve'},
 
@@ -50,7 +61,18 @@ const HomeScreen = () => {
   return (
     <View>
       <View style={homeStyles.container}>
+      
+
         <View style={homeStyles.topBar}>
+          <Text stlye={homeStyles.appName}>project b</Text>
+          <TouchableOpacity
+          onPress={()=>{NavToEventCreate()}}
+          >
+
+            <Text stlye={homeStyles.appName}>Event ekle</Text>
+          </TouchableOpacity>
+        </View>
+        {/* <View style={homeStyles.topBar}>
         
           <Text stlye={homeStyles.appName}>project b</Text>
         </View>
@@ -60,7 +82,7 @@ const HomeScreen = () => {
           </View>
           
           <Text stlye={homeStyles.appName}>search box / filtering</Text>
-        </View>
+        </View> */}
         <ScrollView horizontal={true}>
           {
             Events.map((event)=>{
@@ -84,7 +106,7 @@ const HomeScreen = () => {
             Events.map((event)=>{
               return(
                 <TouchableOpacity
-                onPress={()=>{selectEvent(event.id)}}
+                onPress={()=>{NavToEventDetails(event.id)}}
                 >
 
                   <View key={event.id}>
@@ -92,7 +114,7 @@ const HomeScreen = () => {
                       <View style={eventStyles.cardHeader}>
                         <Text style={eventStyles.cardName}>{event.name}</Text>
                         <TouchableOpacity
-                        onPress={()=>{selectCategory(event.id)}}
+                        onPress={()=>{NavToEventDetails()}}
                         >
                           <View style={eventStyles.cardCategory}>
                             <Text>{event.category}</Text>

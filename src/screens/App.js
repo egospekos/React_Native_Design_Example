@@ -5,10 +5,81 @@ import HomeScreen from './HomeScreen';
 import MyProfileScreen from './MyProfileScreen';
 import IncomingsScreen from './IncomingsScreen';
 import OutgoingsScreen from './OutgoingsScreen';
+import CreateEventScreen from './CreateEventScreen';
+import EventDetailsScreen from './EventDetailScreen';
+import UsersDetailScreen from './UsersDetailScreen';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 const Tab  = createBottomTabNavigator();
+const Stack  = createStackNavigator();
 
+function EventNavigatorHandler() {
+  return (
+    <Stack.Navigator
+    //  screenOptions={{
+    //    header:()=>null
+    //  }}  //her screen için
+     >
+       <Stack.Screen
+       name = 'EventBase'
+       component={HomeScreen}
+       options={{
+         header:()=>null
+       }}
+       />
+       <Stack.Screen
+       name = 'CreateEvent'
+       component={CreateEventScreen}
+       />
+       <Stack.Screen
+       name = 'EventDetails'
+       component={EventDetailsScreen}
+       />
+     </Stack.Navigator>
+  );
+}
+
+function IncomingsNavigatorHandler() {
+  return (
+    <Stack.Navigator
+     >
+       <Stack.Screen
+       name = 'IncomingsBase'
+       component={IncomingsScreen}
+       options={{
+         header:()=>null
+       }}
+       />
+       <Stack.Screen
+       name = 'UsersDetails'
+       component={UsersDetailScreen}
+       />
+       <Stack.Screen
+       name = 'EventDetails'
+       component={EventDetailsScreen}
+       />
+     </Stack.Navigator>
+  );
+}
+
+function OutgoingsNavigatorHandler() {
+  return (
+    <Stack.Navigator
+     >
+       <Stack.Screen
+       name = 'OutgoingsBase'
+       component={OutgoingsScreen}
+       options={{
+         header:()=>null
+       }}
+       />
+       <Stack.Screen
+       name = 'EventDetails'
+       component={EventDetailsScreen}
+       />
+     </Stack.Navigator>
+  );
+}
 
 function App (){
   
@@ -19,7 +90,7 @@ function App (){
         // https://fontawesome.com/  iconlar için
         tabBarIcon:({focused,size,color})=>{
           let iconName;
-          if(route.name==='Home'){
+          if(route.name==='Event'){
             iconName='baby';
             size = focused ? 25 : 20 ;
             color = focused ? '#034efc' :'#fcba03';
@@ -56,24 +127,26 @@ function App (){
       // }}
      >
        <Tab.Screen
-       name = 'Home'
-       component={HomeScreen}
+       name = 'Event'
+       component={EventNavigatorHandler}
        options={{
         header:()=>null,
        }}
        />
        <Tab.Screen
        name = 'Incomings'
-       component={IncomingsScreen}
+       component={IncomingsNavigatorHandler}
        options={{
         tabBarBadge:3,
+        header:()=>null,
        }}
        />
        <Tab.Screen
        name = 'Outgoings'
-       component={OutgoingsScreen}
+       component={OutgoingsNavigatorHandler}
        options={{
         tabBarBadge:1,
+        header:()=>null,
        }}
        />
        <Tab.Screen
