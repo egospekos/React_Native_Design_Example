@@ -7,7 +7,9 @@ import {
   ScrollView,
   FlatList,
   TouchableOpacity,
+  TextInput,
 } from 'react-native';
+//import { TextInput } from 'react-native-gesture-handler';
 
 const selectEvent = (event_id) => {
   console.log(event_id+" no'lu EVENT");
@@ -53,7 +55,11 @@ const HomeScreen = () => {
           <Text stlye={homeStyles.appName}>project b</Text>
         </View>
         <View style={homeStyles.filterBar}>
-          <Text stlye={homeStyles.appName}>serach box / filtering</Text>
+          <View style={homeStyles.searchBar}>
+            <TextInput></TextInput>
+          </View>
+          
+          <Text stlye={homeStyles.appName}>search box / filtering</Text>
         </View>
         <ScrollView horizontal={true}>
           {
@@ -219,7 +225,16 @@ const homeStyles = StyleSheet.create({
     justifyContent:'center',
     alignItems:'center',
     backgroundColor:'aquamarine',
+    flexDirection:'row',
     height:35,
+  },
+  searchBar:{
+    backgroundColor:'white',
+    borderColor:'red',
+    borderWidth:2,
+    borderRadius:9,
+    padding:5,
+    width:130,
   },
 });
 const categoryStyles = StyleSheet.create({
