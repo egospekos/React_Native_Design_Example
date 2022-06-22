@@ -36,7 +36,7 @@ const HomeScreen = ({navigation}) => {
 
   const NavToEventDetails=(event_id)=>{
     console.log(event_id+" no'lu EVENT");
-    navigation.navigate('EventDetails');
+    navigation.navigate('EventDetails',{eventId: event_id});
   }
 
   const [Events,setEvents] = useState([

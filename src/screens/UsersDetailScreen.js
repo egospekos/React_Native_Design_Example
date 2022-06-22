@@ -6,12 +6,12 @@ import {
 } from 'react-native';
 
 
-export default function UsersDetailScreen(){
-  
+export default function UsersDetailScreen({ route, navigation }){
+  const { userId} = route.params;
   
     return(
       <View>
-        <Text>Users Details</Text>
+        <Text>Users Details { userId} nolu user</Text>
       </View>
     );
   }

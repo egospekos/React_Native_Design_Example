@@ -26,12 +26,12 @@ const likeEvent = (event_id) => {
 export default function IncomingsScreen({navigation}){
   const NavToUserDetail=(user_id)=>{
     console.log(user_id+" no'lu USER");
-    navigation.navigate('UsersDetails');
+    navigation.navigate('UsersDetails',{userId: user_id});
   }
 
   const NavToEventDetails=(event_id)=>{
     console.log(event_id+" no'lu EVENT");
-    navigation.navigate('EventDetails');
+    navigation.navigate('EventDetails',{eventId: event_id});
   }
 
   const [Events,setEvents] = useState([

@@ -6,12 +6,12 @@ import {
 } from 'react-native';
 
 
-export default function EventDetailScreen(){
-  
+export default function EventDetailScreen({ route, navigation }){
+  const { eventId} = route.params;
   
     return(
       <View>
-        <Text>Event Details</Text>
+        <Text>Event Details {eventId} no lu eventten geldin</Text>
       </View>
     );
   }
