@@ -10,6 +10,7 @@ import {
   TextInput,
 } from 'react-native';
 //import { TextInput } from 'react-native-gesture-handler';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
 
 
@@ -63,15 +64,10 @@ const HomeScreen = ({navigation}) => {
       <View style={homeStyles.container}>
       
 
-        <View style={homeStyles.topBar}>
+        {/* <View style={homeStyles.topBar}>
           <Text stlye={homeStyles.appName}>project b</Text>
-          <TouchableOpacity
-          onPress={()=>{NavToEventCreate()}}
-          >
+        </View> */}
 
-            <Text stlye={homeStyles.appName}>Event ekle</Text>
-          </TouchableOpacity>
-        </View>
         {/* <View style={homeStyles.topBar}>
         
           <Text stlye={homeStyles.appName}>project b</Text>
@@ -101,6 +97,18 @@ const HomeScreen = ({navigation}) => {
             })
           }
         </ScrollView>
+        <View style={eventStyles.addEventBar}>
+          <TouchableOpacity
+            onPress={()=>{NavToEventCreate()}}
+            >
+              <View style={homeStyles.createEventButton}>
+                <FontAwesome name="plus-circle" size={30} color="#95c89e" />
+              </View>
+              
+              {/* <Text stlye={homeStyles.appName}>Event ekle</Text> */}
+          </TouchableOpacity>
+        </View>
+        
         <ScrollView>
           {
             Events.map((event)=>{
@@ -132,14 +140,17 @@ const HomeScreen = ({navigation}) => {
                         onPress={()=>{likeEvent(event.id)}}
                         >
                           <View style={eventStyles.favButton}>
-                            <Text style={eventStyles.favButtonText}>Beğen</Text>
+                            {/* <Text style={eventStyles.favButtonText}>Beğen</Text> */}
+                            <FontAwesome name="heart" size={30} color="#95c89e" />
                           </View>
+                          
                         </TouchableOpacity>
                         <TouchableOpacity
                         onPress={()=>{applyEvent(event.id)}}
                         >
                           <View style={eventStyles.applyButton}>
-                            <Text style={eventStyles.applyButtonText}>Başvur</Text>
+                          <FontAwesome name="send" size={30} color="#95c89e" />
+                            {/* <Text style={eventStyles.applyButtonText}>Başvur</Text> */}
                           </View>
                         </TouchableOpacity>
                       </View>
@@ -151,6 +162,7 @@ const HomeScreen = ({navigation}) => {
           }
         </ScrollView>
       </View>
+      
     </View>
   );
 };
@@ -158,8 +170,12 @@ const HomeScreen = ({navigation}) => {
 const eventStyles = StyleSheet.create({
   card:{
     margin:5,
-    backgroundColor:'#000000',
+    backgroundColor:'#A2D5AB', // 205375
     borderRadius:10,
+    // shadowColor: '#000000',
+    // shadowOffset: {width:-10, height: 25},
+    // shadowOpacity: 1,
+    // shadowRadius: 15,
   },
   cardHeader:{
     alignItems:'center',
@@ -170,16 +186,15 @@ const eventStyles = StyleSheet.create({
   cardName:{
     paddingLeft:10,
     paddingTop:5,
-    color: '#ffffff',
     flex:4,
-    color:'red',
+    color:'#557B83',
   },
   cardCategory:{
     width:75,
     height:23,
     alignItems:'center',
     justifyContent:'center',
-    backgroundColor:'blue',
+    backgroundColor:'#95c89e',
     borderRadius:10,
     marginRight:7,
     marginTop:5,
@@ -190,7 +205,7 @@ const eventStyles = StyleSheet.create({
     padding:15,
   },
   cardDesc:{
-    color:'white',
+    color:'#557B83',
   },
   cardFooter:{
     alignItems:'center',
@@ -201,7 +216,7 @@ const eventStyles = StyleSheet.create({
   favButton:{
     marginRight:5,
     marginBottom:3,
-    backgroundColor:'red',
+    // backgroundColor:'#CDC2AE',
     height:35,
     width:50,
     justifyContent:'center',
@@ -209,12 +224,12 @@ const eventStyles = StyleSheet.create({
     borderRadius:7,
   },
   favButtonText:{
-    color:'#ffffff',
+    color:'#557B83',
   },
   applyButton:{
     marginRight:5,
     marginBottom:3,
-    backgroundColor:'red',
+    // backgroundColor:'#CDC2AE',
     height:35,
     width:50,
     justifyContent:'center',
@@ -222,17 +237,21 @@ const eventStyles = StyleSheet.create({
     borderRadius:7,
   },
   applyButtonText:{
-    color:'#ffffff',
+    color:'#557B83',
   },
   comments:{
     position:'relative',
     right:'75%',
     fontStyle:'italic',
-    color:'white',
+    color:'#557B83',
+  },
+  addEventBar:{
+
   },
 });
 const homeStyles = StyleSheet.create({
   container:{
+    backgroundColor:'#E5EFC1',
   },
   topBar:{
     justifyContent:'center',
@@ -258,12 +277,18 @@ const homeStyles = StyleSheet.create({
     padding:5,
     width:130,
   },
+  createEventButton:{
+    alignItems:'center',
+    justifyContent:'flex-end',
+    flexDirection:'row',
+    paddingRight:10,
+  },
 });
 const categoryStyles = StyleSheet.create({
   card:{
-    height:100,
-    width:100,
-    backgroundColor:'darkgoldenrod',
+    height:30,
+    width:65,
+    backgroundColor:'#95c89e',
     margin:5,
     alignItems:'center',
     justifyContent:'center',
