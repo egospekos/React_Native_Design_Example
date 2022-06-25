@@ -31,10 +31,16 @@ function EventNavigatorHandler() {
        <Stack.Screen
        name = 'CreateEvent'
        component={CreateEventScreen}
+       options={{
+        header:()=>null
+       }}
        />
        <Stack.Screen
        name = 'EventDetails'
        component={EventDetailsScreen}
+       options={{
+        header:()=>null
+       }}
        />
      </Stack.Navigator>
   );
@@ -54,10 +60,16 @@ function IncomingsNavigatorHandler() {
        <Stack.Screen
        name = 'UsersDetails'
        component={UsersDetailScreen}
+       options={{
+        header:()=>null
+       }}
        />
        <Stack.Screen
        name = 'EventDetails'
        component={EventDetailsScreen}
+       options={{
+        header:()=>null
+       }}
        />
      </Stack.Navigator>
   );
@@ -77,6 +89,9 @@ function OutgoingsNavigatorHandler() {
        <Stack.Screen
        name = 'EventDetails'
        component={EventDetailsScreen}
+       options={{
+        header:()=>null
+       }}
        />
      </Stack.Navigator>
   );
@@ -92,19 +107,19 @@ function App (){
         tabBarIcon:({focused,size,color})=>{
           let iconName;
           if(route.name==='Event'){
-            iconName='person-booth'; //person-booth
+            iconName='home'; //person-booth
             size = focused ? 32 : 25 ;
             color = focused ? '#557B83' :'#89bb92';
           }else if(route.name==='Profile'){
-            iconName='baby';
+            iconName='user';
             size = focused ? 32 : 25 ;
             color = focused ? '#557B83' :'#89bb92';
           }else if (route.name==='Incomings'){
-            iconName='baby';
+            iconName='share-square';
             size = focused ? 32 : 25 ;
             color = focused ? '#557B83' :'#89bb92';
           }else if(route.name==='Outgoings'){
-            iconName='baby';
+            iconName='bars';
             size = focused ? 32 : 25 ;
             color = focused ? '#557B83' :'#89bb92';
           }
@@ -153,6 +168,9 @@ function App (){
        <Tab.Screen
        name = 'Profile'
        component={MyProfileScreen}
+       options={{
+        header:()=>null,
+       }}
        />
        
      </Tab.Navigator>
