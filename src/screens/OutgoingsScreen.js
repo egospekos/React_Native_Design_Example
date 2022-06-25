@@ -6,6 +6,7 @@ import {
   ScrollView,
   TouchableOpacity,
 } from 'react-native';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
 const selectEvent = (event_id) => {
   console.log(event_id+" no'lu EVENT");
@@ -34,8 +35,77 @@ export default function OutgoingsScreen({navigation}){
   
   ])
     return(
-      <View>
-        <ScrollView>
+      <View style={screenStyles.container}>
+        <View style={screenStyles.positiveBox}>
+          <View style={screenStyles.headerRow}>
+            <FontAwesome name="check-circle" size={35} color="#557B83" />
+          </View>
+          <TouchableOpacity
+          onPress={()=>{NavToEventDetails(1)}}
+          >
+          <View key={1}>
+            <View style={eventStyles.card}>
+              <View style={eventStyles.cardHeader}>
+                <Text style={eventStyles.cardName}>kahveci</Text>
+                <TouchableOpacity
+                onPress={()=>{NavToEventDetails()}}
+                >
+                <View style={eventStyles.cardCategory}>
+                  <Text>kahve</Text>
+                </View>
+                </TouchableOpacity>
+              </View>
+            <View style={eventStyles.cardBody}>
+              <Text style={eventStyles.cardDesc}>kahve içmeye ya hadi</Text>
+            </View>
+            <View style={eventStyles.cardFooter}>
+              <View style={eventStyles.footerCommentBox}>
+                <FontAwesome name="comments" size={30} color="#95c89e" />
+                <Text style={eventStyles.comments}>(3)</Text>
+              </View>
+            </View>
+          </View>
+        </View>
+        </TouchableOpacity>
+      </View>
+        <View style={screenStyles.negativeBox}>
+          <View style={screenStyles.headerRow}>
+            <FontAwesome name="times-circle" size={35} color="#557B83" />
+          </View>
+          <TouchableOpacity
+          onPress={()=>{NavToEventDetails(1)}}
+          >
+            <View key={1}>
+              <View style={eventStyles.card}>
+                <View style={eventStyles.cardHeader}>
+                  <Text style={eventStyles.cardName}>halısaha</Text>
+                  <TouchableOpacity
+                  onPress={()=>{NavToEventDetails()}}
+                  >
+                  <View style={eventStyles.cardCategory}>
+                    <Text>spor</Text>
+                  </View>
+                  </TouchableOpacity>
+                </View>
+                <View style={eventStyles.cardBody}>
+                <Text style={eventStyles.cardDesc}>kaleci eksik</Text>
+                </View>
+                <View style={eventStyles.cardFooter}>
+                  <View style={eventStyles.footerCommentBox}>
+                    <FontAwesome name="comments" size={30} color="#95c89e" />
+                    <Text style={eventStyles.comments}>(3)</Text>
+                  </View>
+                </View>
+              </View>
+            </View>
+          </TouchableOpacity>
+        </View>
+        <View style={screenStyles.draftBox}>
+        <View style={screenStyles.headerRow}>
+            <FontAwesome name="mouse-pointer" size={35} color="#557B83" />
+          </View>
+        </View>
+        {/* <ScrollView>
           {
             Events.map((event)=>{
               return(
@@ -68,16 +138,39 @@ export default function OutgoingsScreen({navigation}){
               )
             })
           }
-        </ScrollView>
+        </ScrollView> */}
       </View>
     );
   }
 
+  const screenStyles = StyleSheet.create({
+    container:{
+      flex:1,
+      backgroundColor:'#E5EFC1',
+      flexDirection:'column',
+    },
+    positiveBox:{
+      flexDirection:'column'
+    },
+    negativeBox:{
+
+    },
+    headerRow:{
+      justifyContent:'center',
+      alignItems:'center',
+      padding:3,
+    }
+  });
+
   const eventStyles = StyleSheet.create({
     card:{
       margin:5,
-      backgroundColor:'red',
+      backgroundColor:'#A2D5AB', // 205375
       borderRadius:10,
+      // shadowColor: '#000000',
+      // shadowOffset: {width:-10, height: 25},
+      // shadowOpacity: 1,
+      // shadowRadius: 15,
     },
     cardHeader:{
       alignItems:'center',
@@ -88,16 +181,15 @@ export default function OutgoingsScreen({navigation}){
     cardName:{
       paddingLeft:10,
       paddingTop:5,
-      color: '#ffffff',
       flex:4,
-      color:'white',
+      color:'#557B83',
     },
     cardCategory:{
       width:75,
       height:23,
       alignItems:'center',
       justifyContent:'center',
-      backgroundColor:'orange',
+      backgroundColor:'#95c89e',
       borderRadius:10,
       marginRight:7,
       marginTop:5,
@@ -108,19 +200,29 @@ export default function OutgoingsScreen({navigation}){
       padding:15,
     },
     cardDesc:{
-      color:'black',
-      flex:1,
+      color:'#557B83',
     },
     cardFooter:{
+      flexDirection:'row',
+      margin:3,
+    },
+    footerButtonBox:{
+      flex:1,
       alignItems:'center',
       justifyContent:'flex-end',
       flexDirection:'row',
-      margin:3,
+    },
+    footerCommentBox:{
+      flex:1,
+      paddingLeft:10,
+      alignItems:'center',
+      justifyContent:'flex-start',
+      flexDirection:'row',
     },
     favButton:{
       marginRight:5,
       marginBottom:3,
-      backgroundColor:'red',
+      // backgroundColor:'#CDC2AE',
       height:35,
       width:50,
       justifyContent:'center',
@@ -128,12 +230,12 @@ export default function OutgoingsScreen({navigation}){
       borderRadius:7,
     },
     favButtonText:{
-      color:'#ffffff',
+      color:'#557B83',
     },
     applyButton:{
       marginRight:5,
       marginBottom:3,
-      backgroundColor:'green',
+      // backgroundColor:'#CDC2AE',
       height:35,
       width:50,
       justifyContent:'center',
@@ -141,16 +243,14 @@ export default function OutgoingsScreen({navigation}){
       borderRadius:7,
     },
     applyButtonText:{
-      color:'#ffffff',
+      color:'#557B83', //89bb92 koyusu
     },
     comments:{
-      position:'relative',
-      right:'75%',
       fontStyle:'italic',
-      color:'white',
+      color:'#557B83',
     },
-    cardBodyRow:{
-      flex:1,
-      flexDirection:'row',
+    addEventBar:{
+  
     },
   });
+  
