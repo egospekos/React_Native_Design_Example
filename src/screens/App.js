@@ -42,6 +42,13 @@ function EventNavigatorHandler() {
         header:()=>null
        }}
        />
+       <Stack.Screen
+       name = 'UsersDetails'
+       component={UsersDetailScreen}
+       options={{
+        header:()=>null
+       }}
+       />
      </Stack.Navigator>
   );
 }

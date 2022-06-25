@@ -21,7 +21,9 @@ event.category="kahve";
 event.description="arabicada kahve içcez adam lazım her zamanki gibi hadi çıkın çıkın gelin";
 export default function EventDetailScreen({ route, navigation }){
   const { eventId} = route.params;
-  
+  const NavToUsersDetails=(user_id)=>{
+    navigation.navigate('UsersDetails',{userId: user_id});
+  }
     return(
       <View style={screenStyle.container}>
         
@@ -67,20 +69,28 @@ export default function EventDetailScreen({ route, navigation }){
           </View>
           {/* burdan sonra loop */}
           <View style={commentStyle.commentCard}>
-            <View style={commentStyle.userRow}>
-              <FontAwesome name="user-circle-o" size={30} color="#95c89e" />
-              <Text style={commentStyle.userName}>Vecdi</Text>
-            </View>
+            <TouchableOpacity
+            onPress={()=>{NavToUsersDetails()}}
+            >
+              <View style={commentStyle.userRow}>
+                <FontAwesome name="user-circle-o" size={30} color="#95c89e" />
+                <Text style={commentStyle.userName}>Vecdi</Text>
+              </View>
+            </TouchableOpacity>
             <View style={commentStyle.body}>
               <Text style={commentStyle.text}>Gelmek istiyorum ama orada pumpkin smoothie satılıyor mu?</Text>
             </View>
           </View>
           {/* buraya kadar */}
           <View style={commentStyle.commentCard}>
-            <View style={commentStyle.userRow}>
-              <FontAwesome name="user-circle-o" size={30} color="#95c89e" />
-              <Text style={commentStyle.userName}>Osman</Text>
-            </View>
+            <TouchableOpacity
+            onPress={()=>{NavToUsersDetails()}}
+            >
+              <View style={commentStyle.userRow}>
+                <FontAwesome name="user-circle-o" size={30} color="#95c89e" />
+                <Text style={commentStyle.userName}>Osman</Text>
+              </View>
+            </TouchableOpacity>
             <View style={commentStyle.body}>
               <Text style={commentStyle.text}>Tez yazmıyor olsam kesin gelirdim.</Text>
             </View>
