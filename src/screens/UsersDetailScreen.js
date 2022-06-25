@@ -37,7 +37,7 @@ export default function UsersDetailScreen({ route, navigation }){
             <Text style={screenStyles.infoText}>Levent</Text>
           </View>
         </View>
-        <View style={screenStyles.infoRow}>
+        {/* <View style={screenStyles.infoRow}>
           <View style={screenStyles.rowFront}>
             <Text style={screenStyles.infoText}>Email</Text>
           </View>
@@ -47,7 +47,7 @@ export default function UsersDetailScreen({ route, navigation }){
           <View style={screenStyles.rowBack}>
             <Text style={screenStyles.infoText}>mail@mail.com</Text>
           </View>
-        </View>
+        </View> */}
         <View style={commentStyle.commentsContainer}>
         <View style={commentStyle.Header}>
           <FontAwesome name="comments" size={30} color="#95c89e" />
@@ -73,7 +73,9 @@ export default function UsersDetailScreen({ route, navigation }){
           </View>
         </View>
         </View>   
-        
+        <View style={screenStyles.row}>
+          <FontAwesome name="wechat" size={55} color="#A2D5AB" />
+        </View> 
       </View>
     );
   }
