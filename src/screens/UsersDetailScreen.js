@@ -4,12 +4,15 @@ import {
   Text,
   View,
 } from 'react-native';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
 
 export default function UsersDetailScreen({ route, navigation }){
   const { userId} = route.params;
-  
+  const NavToUsersDetails=(user_id)=>{
+    navigation.navigate('UsersDetails',{userId: user_id});
+  }
     return(
       <View style={screenStyles.container}>
         <View style={screenStyles.row}>
@@ -55,19 +58,27 @@ export default function UsersDetailScreen({ route, navigation }){
           
         </View>
         <View style={commentStyle.commentCard}>
-          <View style={commentStyle.userRow}>
-            <FontAwesome name="user-circle-o" size={30} color="#95c89e" />
-            <Text style={commentStyle.userName}>Aybars</Text>
-          </View>
+          <TouchableOpacity
+          onPress={()=>{NavToUsersDetails(1)}}
+          >
+            <View style={commentStyle.userRow}>
+              <FontAwesome name="user-circle-o" size={30} color="#95c89e" />
+              <Text style={commentStyle.userName}>Aybars</Text>
+            </View>
+          </TouchableOpacity>
           <View style={commentStyle.body}>
             <Text style={commentStyle.text}>Muhabbeti sardı ama yapay zekadan çok anlamıyor gibi.</Text>
           </View>
         </View>
         <View style={commentStyle.commentCard}>
-          <View style={commentStyle.userRow}>
-            <FontAwesome name="user-circle-o" size={30} color="#95c89e" />
-            <Text style={commentStyle.userName}>Birol</Text>
-          </View>
+          <TouchableOpacity
+          onPress={()=>{NavToUsersDetails(1)}}
+          >
+            <View style={commentStyle.userRow}>
+              <FontAwesome name="user-circle-o" size={30} color="#95c89e" />
+              <Text style={commentStyle.userName}>Birol</Text>
+            </View>
+          </TouchableOpacity>
           <View style={commentStyle.body}>
             <Text style={commentStyle.text}>Bir kere takılmak yetti.</Text>
           </View>
@@ -149,6 +160,7 @@ export default function UsersDetailScreen({ route, navigation }){
       color:'#A2D5AB',
       fontSize:20,
       paddingLeft:7,
+      fontWeight:'600',
     },
     commentCard:{
       //flex:1,
@@ -167,14 +179,17 @@ export default function UsersDetailScreen({ route, navigation }){
     userName:{
       paddingTop:3,
       paddingLeft:5,
-      color:'#A2D5AB',
-      fontSize:17,
+      color:'#557B83',
+      fontSize:19,
+      fontWeight:'600',
     },
     body:{
       padding:5,
     },
     text:{
-      fontSize:15,
-      color:'#A2D5AB',
+      //color:'#A2D5AB',
+      color:'#557B83',
+      fontSize:17,
+      fontWeight:'500',
     },
   });
