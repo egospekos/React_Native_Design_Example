@@ -64,10 +64,19 @@ export default function EventDetailScreen({ route, navigation }){
   }
 
   const eventStyles = StyleSheet.create({
+    container:{
+      backgroundColor:'#E5EFC1',
+      flex:1,
+    },
+
     card:{
       margin:5,
-      backgroundColor:'#000000',
+      backgroundColor:'#A2D5AB', // 205375
       borderRadius:10,
+      // shadowColor: '#000000',
+      // shadowOffset: {width:-10, height: 25},
+      // shadowOpacity: 1,
+      // shadowRadius: 15,
     },
     cardHeader:{
       alignItems:'center',
@@ -78,16 +87,15 @@ export default function EventDetailScreen({ route, navigation }){
     cardName:{
       paddingLeft:10,
       paddingTop:5,
-      color: '#ffffff',
       flex:4,
-      color:'red',
+      color:'#557B83',
     },
     cardCategory:{
       width:75,
       height:23,
       alignItems:'center',
       justifyContent:'center',
-      backgroundColor:'blue',
+      backgroundColor:'#95c89e',
       borderRadius:10,
       marginRight:7,
       marginTop:5,
@@ -98,7 +106,7 @@ export default function EventDetailScreen({ route, navigation }){
       padding:15,
     },
     cardDesc:{
-      color:'white',
+      color:'#557B83',
     },
     cardFooter:{
       alignItems:'center',
@@ -109,7 +117,7 @@ export default function EventDetailScreen({ route, navigation }){
     favButton:{
       marginRight:5,
       marginBottom:3,
-      backgroundColor:'red',
+      // backgroundColor:'#CDC2AE',
       height:35,
       width:50,
       justifyContent:'center',
@@ -117,12 +125,12 @@ export default function EventDetailScreen({ route, navigation }){
       borderRadius:7,
     },
     favButtonText:{
-      color:'#ffffff',
+      color:'#557B83',
     },
     applyButton:{
       marginRight:5,
       marginBottom:3,
-      backgroundColor:'red',
+      // backgroundColor:'#CDC2AE',
       height:35,
       width:50,
       justifyContent:'center',
@@ -130,12 +138,15 @@ export default function EventDetailScreen({ route, navigation }){
       borderRadius:7,
     },
     applyButtonText:{
-      color:'#ffffff',
+      color:'#557B83',
     },
     comments:{
       position:'relative',
       right:'75%',
       fontStyle:'italic',
-      color:'white',
+      color:'#557B83',
+    },
+    addEventBar:{
+  
     },
   });

@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
+import { NavigationContainer,DefaultTheme } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import HomeScreen from './HomeScreen';
 import MyProfileScreen from './MyProfileScreen';
@@ -12,6 +12,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 const Tab  = createBottomTabNavigator();
 const Stack  = createStackNavigator();
+
 
 function EventNavigatorHandler() {
   return (
@@ -91,21 +92,21 @@ function App (){
         tabBarIcon:({focused,size,color})=>{
           let iconName;
           if(route.name==='Event'){
-            iconName='baby';
-            size = focused ? 25 : 20 ;
-            color = focused ? '#034efc' :'#fcba03';
+            iconName='person-booth'; //person-booth
+            size = focused ? 32 : 25 ;
+            color = focused ? '#557B83' :'#89bb92';
           }else if(route.name==='Profile'){
             iconName='baby';
-            size = focused ? 25 : 20 ;
-            color = focused ? '#034efc' :'#fcba03';
+            size = focused ? 32 : 25 ;
+            color = focused ? '#557B83' :'#89bb92';
           }else if (route.name==='Incomings'){
             iconName='baby';
-            size = focused ? 25 : 20 ;
-            color = focused ? '#034efc' :'#fcba03';
+            size = focused ? 32 : 25 ;
+            color = focused ? '#557B83' :'#89bb92';
           }else if(route.name==='Outgoings'){
             iconName='baby';
-            size = focused ? 25 : 20 ;
-            color = focused ? '#034efc' :'#fcba03';
+            size = focused ? 32 : 25 ;
+            color = focused ? '#557B83' :'#89bb92';
           }
           return(
             <FontAwesome5

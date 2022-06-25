@@ -89,6 +89,7 @@ const HomeScreen = ({navigation}) => {
 
                   <View key={event.id}>
                     <View style={categoryStyles.card}>
+                      <FontAwesome name="tag" size={30} color="#95c89e" />
                       <Text>{event.category}</Text>
                     </View>
                   </View>
@@ -237,7 +238,7 @@ const eventStyles = StyleSheet.create({
     borderRadius:7,
   },
   applyButtonText:{
-    color:'#557B83',
+    color:'#557B83', //89bb92 koyusu
   },
   comments:{
     position:'relative',
@@ -286,9 +287,10 @@ const homeStyles = StyleSheet.create({
 });
 const categoryStyles = StyleSheet.create({
   card:{
+    flexDirection:'row',
     height:30,
-    width:65,
-    backgroundColor:'#95c89e',
+    width:100,
+    backgroundColor:'#A2D5AB',
     margin:5,
     alignItems:'center',
     justifyContent:'center',

@@ -6,6 +6,7 @@ import {
   ScrollView,
   TouchableOpacity,
 } from 'react-native';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
 const selectEvent = (event_id) => {
   console.log(event_id+" no'lu EVENT");
@@ -41,7 +42,7 @@ export default function IncomingsScreen({navigation}){
   ])
 
     return(
-      <View>
+      <View style={screenStyle.container}>
         <ScrollView>
           {
             Events.map((event)=>{
@@ -72,14 +73,14 @@ export default function IncomingsScreen({navigation}){
                           onPress={()=>{likeEvent(event.id)}}
                           >
                             <View style={eventStyles.favButton}>
-                              <Text style={eventStyles.favButtonText}>Red</Text>
+                              <FontAwesome name="remove" size={30} color="#95c89e" />
                             </View>
                           </TouchableOpacity>
                           <TouchableOpacity
                           onPress={()=>{applyEvent(event.id)}}
                           >
                             <View style={eventStyles.applyButton}>
-                              <Text style={eventStyles.applyButtonText}>Kabul</Text>
+                              <FontAwesome name="check" size={30} color="#95c89e" />
                             </View>
                           </TouchableOpacity> 
                         </View>
@@ -89,21 +90,22 @@ export default function IncomingsScreen({navigation}){
                           onPress={()=>{likeEvent(event.id)}}
                           >
                             <View style={eventStyles.favButton}>
-                              <Text style={eventStyles.favButtonText}>Red</Text>
+                              <FontAwesome name="remove" size={30} color="#95c89e" />
                             </View>
                           </TouchableOpacity>
                           <TouchableOpacity
                           onPress={()=>{applyEvent(event.id)}}
                           >
                             <View style={eventStyles.applyButton}>
-                              <Text style={eventStyles.applyButtonText}>Kabul</Text>
+                              <FontAwesome name="check" size={30} color="#95c89e" />
                             </View>
                           </TouchableOpacity> 
                         </View>
                       </View>
                       <View style={eventStyles.cardFooter}>
-                        <View>
-                          <Text style={eventStyles.comments}>Yorumlar(3)</Text>
+                        <View style={eventStyles.commentPack}>
+                          <FontAwesome name="comments" size={30} color="#95c89e" />
+                          <Text style={eventStyles.comments}>(3)</Text>
                         </View>
                       </View>
                     </View>
@@ -117,10 +119,17 @@ export default function IncomingsScreen({navigation}){
     );
   }
 
+  const screenStyle = StyleSheet.create({
+    container:{
+      flex:1,
+      backgroundColor:'#E5EFC1',
+    },
+  });
+
 const eventStyles = StyleSheet.create({
   card:{
     margin:5,
-    backgroundColor:'#000000',
+    backgroundColor:'#A2D5AB',
     borderRadius:10,
   },
   cardHeader:{
@@ -132,16 +141,15 @@ const eventStyles = StyleSheet.create({
   cardName:{
     paddingLeft:10,
     paddingTop:5,
-    color: '#ffffff',
+    color: '#557B83',
     flex:4,
-    color:'red',
   },
   cardCategory:{
     width:75,
     height:23,
     alignItems:'center',
     justifyContent:'center',
-    backgroundColor:'blue',
+    backgroundColor:'#95c89e',
     borderRadius:10,
     marginRight:7,
     marginTop:5,
@@ -152,19 +160,19 @@ const eventStyles = StyleSheet.create({
     padding:15,
   },
   cardDesc:{
-    color:'white',
+    color:'#557B83',
     flex:1,
   },
   cardFooter:{
     alignItems:'center',
-    justifyContent:'flex-end',
+    justifyContent:'flex-start',
     flexDirection:'row',
     margin:3,
   },
   favButton:{
     marginRight:5,
     marginBottom:3,
-    backgroundColor:'red',
+    //backgroundColor:'red',
     height:35,
     width:50,
     justifyContent:'center',
@@ -177,7 +185,7 @@ const eventStyles = StyleSheet.create({
   applyButton:{
     marginRight:5,
     marginBottom:3,
-    backgroundColor:'green',
+    //backgroundColor:'green',
     height:35,
     width:50,
     justifyContent:'center',
@@ -187,11 +195,17 @@ const eventStyles = StyleSheet.create({
   applyButtonText:{
     color:'#ffffff',
   },
+  commentPack:{
+    flexDirection:'row',
+    paddingLeft:10,
+  },
   comments:{
-    position:'relative',
-    right:'75%',
+    //position:'relative',
+    //right:'75%',
+    paddingLeft:6,
+    paddingTop:4,
     fontStyle:'italic',
-    color:'white',
+    color:'#557B83',
   },
   cardBodyRow:{
     flex:1,
