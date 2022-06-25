@@ -5,85 +5,96 @@ import {
   View,
 } from 'react-native';
 
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
+
 export default function MyProfileScreen(){
     return(
-      <View style={styles.container}>
-        <View style={styles.row}>
-          <View style={styles.label}>
-            <Text>İsim</Text>
+      <View style={screenStyles.container}>
+        <View style={screenStyles.row}>
+          <FontAwesome name="vcard" size={55} color="#A2D5AB" />
+        </View> 
+        <View style={screenStyles.infoRow}>
+          <View style={screenStyles.rowFront}>
+            <Text style={screenStyles.infoText}>ID</Text>
           </View>
-          <View style={styles.value}>
-            <Text>Oğuz Türk</Text>
+          <View style={screenStyles.rowMid}>
+            <FontAwesome name="info-circle" size={30} color="#A2D5AB" />
           </View>
-        </View>
-        <View style={styles.row}>
-          <View style={styles.label}>
-            <Text>Cinsiyet</Text>
-          </View>
-          <View style={styles.value}>
-            <Text>Erkek</Text>
+          <View style={screenStyles.rowBack}>
+            <Text style={screenStyles.infoText}>21412412</Text>
           </View>
         </View>
-        <View style={styles.row}>
-          <View style={styles.label}>
-            <Text>Yaş</Text>
+        <View style={screenStyles.infoRow}>
+          <View style={screenStyles.rowFront}>
+            <Text style={screenStyles.infoText}>Name</Text>
           </View>
-          <View style={styles.value}>
-            <Text>23</Text>
+          <View style={screenStyles.rowMid}>
+            <FontAwesome name="info-circle" size={30} color="#A2D5AB" />
           </View>
-        </View>
-        <View style={styles.row}>
-          <View style={styles.label}>
-            <Text>Şehir</Text>
-          </View>
-          <View style={styles.value}>
-            <Text>İzmir</Text>
+          <View style={screenStyles.rowBack}>
+            <Text style={screenStyles.infoText}>Levent</Text>
           </View>
         </View>
-        <View style={styles.row}>
-          <View style={styles.label}>
-            <Text>Okul</Text>
+        <View style={screenStyles.infoRow}>
+          <View style={screenStyles.rowFront}>
+            <Text style={screenStyles.infoText}>Email</Text>
           </View>
-          <View style={styles.value}>
-            <Text>Ege Üniversitesi</Text>
+          <View style={screenStyles.rowMid}>
+            <FontAwesome name="info-circle" size={30} color="#A2D5AB" />
           </View>
-        </View>
-        <View style={styles.row}>
-          <View style={styles.label}>
-            <Text>Badi sayısı</Text>
-          </View>
-          <View style={styles.value}>
-            <Text>8</Text>
+          <View style={screenStyles.rowBack}>
+            <Text style={screenStyles.infoText}>mail@mail.com</Text>
           </View>
         </View>
+        <View style={screenStyles.row}>
+          <FontAwesome name="edit" size={45} color="#A2D5AB" />
+        </View> 
       </View>
     );
   }
-
-const styles = StyleSheet.create({
-  text:{
-    color:'red',
-  },
-  row:{
-    flexDirection:'row',
-  },
-  label:{
-    backgroundColor:'gray',
-    width:100,
-    height:50,
-    justifyContent:'center',
-    alignItems:'center',
-  },
-  value:{
-    borderRadius:3,
-    borderWidth:2,
-    width:100,
-    height:50,
-    justifyContent:'center',
-    alignItems:'center',
-  },
-  container:{
-    justifyContent:'center',
-    alignItems:'center',
-  },
-});
+  const screenStyles = StyleSheet.create({
+    container:{
+      padding:2,
+      flex:1,
+      backgroundColor:'#E5EFC1',
+      flexDirection:'column',
+    },
+    row:{
+      marginTop:5,
+      marginBottom:10,
+      justifyContent:'center',
+      alignItems:'center',
+    },
+    infoRow:{
+      flexDirection:'row',
+      justifyContent:'center',
+      alignItems:'center',
+      marginBottom:20,
+    },
+    rowFront:{
+      flex:2,
+      justifyContent:'flex-start',
+      paddingLeft:4,
+      backgroundColor:'#A2D5AB',
+      padding:8,
+    },
+    rowMid:{
+      flex:1,
+      justifyContent:'center',
+      alignItems:'center',
+    },
+    rowBack:{
+      flex:2,
+      flexDirection:'row',
+      justifyContent:'flex-end',
+      paddingRight:4,
+      backgroundColor:'#A2D5AB',
+      padding:8,
+    },
+    infoText:{
+      color:'#557B83',
+      fontSize:15,
+      fontWeight:'800',
+      letterSpacing:1,
+    },
+  });
