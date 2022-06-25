@@ -5,6 +5,7 @@ import {
   View,
   TouchableOpacity,
 } from 'react-native';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
 function likeEvent(){
 
@@ -22,7 +23,7 @@ export default function EventDetailScreen({ route, navigation }){
   const { eventId} = route.params;
   
     return(
-      <View style={eventStyles.container}>
+      <View style={screenStyle.container}>
         
         <View style={eventStyles.card}>
           <View style={eventStyles.cardHeader}>
@@ -39,7 +40,7 @@ export default function EventDetailScreen({ route, navigation }){
             <Text style={eventStyles.cardDesc}>{event.description}</Text>
           </View>
           <View style={eventStyles.cardFooter}>
-            <View>
+            {/* <View>
               <Text style={eventStyles.comments}>Yorumlar(3)</Text>
             </View>
             <TouchableOpacity
@@ -55,7 +56,34 @@ export default function EventDetailScreen({ route, navigation }){
               <View style={eventStyles.applyButton}>
                 <Text style={eventStyles.applyButtonText}>Başvur</Text>
               </View>
-            </TouchableOpacity>
+            </TouchableOpacity> */}
+          </View>
+        </View>
+        <View style={commentStyle.commentsContainer}>
+          <View style={commentStyle.Header}>
+            <FontAwesome name="comments" size={30} color="#95c89e" />
+            <Text style={commentStyle.HeaderText}>COMMENTS</Text>
+            
+          </View>
+          {/* burdan sonra loop */}
+          <View style={commentStyle.commentCard}>
+            <View style={commentStyle.userRow}>
+              <FontAwesome name="user-circle-o" size={30} color="#95c89e" />
+              <Text style={commentStyle.userName}>Vecdi</Text>
+            </View>
+            <View style={commentStyle.body}>
+              <Text style={commentStyle.text}>Gelmek istiyorum ama orada pumpkin smoothie satılıyor mu?</Text>
+            </View>
+          </View>
+          {/* buraya kadar */}
+          <View style={commentStyle.commentCard}>
+            <View style={commentStyle.userRow}>
+              <FontAwesome name="user-circle-o" size={30} color="#95c89e" />
+              <Text style={commentStyle.userName}>Osman</Text>
+            </View>
+            <View style={commentStyle.body}>
+              <Text style={commentStyle.text}>Tez yazmıyor olsam kesin gelirdim.</Text>
+            </View>
           </View>
         </View>
         
@@ -63,13 +91,63 @@ export default function EventDetailScreen({ route, navigation }){
     );
   }
 
-  const eventStyles = StyleSheet.create({
+  const commentStyle = StyleSheet.create({
+    commentsContainer:{
+      flex:1,
+      flexDirection:'column',
+      margin:5,
+    },
+    Header:{
+      //flex:1,
+      flexDirection:'row',
+      justifyContent:'center',
+      alignItems:'center',
+    },
+    HeaderText:{
+      color:'#A2D5AB',
+      fontSize:20,
+      paddingLeft:7,
+    },
+    commentCard:{
+      //flex:1,
+      marginTop:5,
+      flexDirection:'column',
+      borderRadius:10,
+      borderWidth:3,
+      borderColor:'#A2D5AB',
+    },
+    userRow:{
+      marginTop:3,
+      paddingLeft:5,
+      flexDirection:'row',
+      justifyContent:'flex-start',
+    },
+    userName:{
+      paddingTop:3,
+      paddingLeft:5,
+      color:'#A2D5AB',
+      fontSize:17,
+    },
+    body:{
+      padding:5,
+    },
+    text:{
+      fontSize:15,
+      color:'#A2D5AB',
+    },
+  });
+  const screenStyle = StyleSheet.create({
     container:{
       backgroundColor:'#E5EFC1',
       flex:1,
+      flexDirection:'column',
     },
+  });
+  const eventStyles = StyleSheet.create({
+    
 
     card:{
+      flex:1,
       margin:5,
       backgroundColor:'#A2D5AB', // 205375
       borderRadius:10,

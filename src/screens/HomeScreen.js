@@ -134,18 +134,22 @@ const HomeScreen = ({navigation}) => {
                         <Text style={eventStyles.cardDesc}>{event.description}</Text>
                       </View>
                       <View style={eventStyles.cardFooter}>
-                        <View>
-                          <Text style={eventStyles.comments}>Yorumlar(3)</Text>
+                        <View style={eventStyles.footerCommentBox}>
+                          <FontAwesome name="comments" size={30} color="#95c89e" />
+                          <Text style={eventStyles.comments}>(3)</Text>
                         </View>
-                        <TouchableOpacity
-                        onPress={()=>{likeEvent(event.id)}}
-                        >
-                          <View style={eventStyles.favButton}>
-                            {/* <Text style={eventStyles.favButtonText}>Beğen</Text> */}
-                            <FontAwesome name="heart" size={30} color="#95c89e" />
-                          </View>
-                          
-                        </TouchableOpacity>
+                        <View style={eventStyles.footerButtonBox}>
+                          <TouchableOpacity
+                          onPress={()=>{likeEvent(event.id)}}
+                          >
+                            <View style={eventStyles.favButton}>
+                              {/* <Text style={eventStyles.favButtonText}>Beğen</Text> */}
+                              <FontAwesome name="heart" size={30} color="#95c89e" />
+                            </View>
+                            
+                          </TouchableOpacity>
+                        </View>
+                        
                         <TouchableOpacity
                         onPress={()=>{applyEvent(event.id)}}
                         >
@@ -209,10 +213,21 @@ const eventStyles = StyleSheet.create({
     color:'#557B83',
   },
   cardFooter:{
+    flexDirection:'row',
+    margin:3,
+  },
+  footerButtonBox:{
+    flex:1,
     alignItems:'center',
     justifyContent:'flex-end',
     flexDirection:'row',
-    margin:3,
+  },
+  footerCommentBox:{
+    flex:1,
+    paddingLeft:10,
+    alignItems:'center',
+    justifyContent:'flex-start',
+    flexDirection:'row',
   },
   favButton:{
     marginRight:5,
@@ -241,8 +256,6 @@ const eventStyles = StyleSheet.create({
     color:'#557B83', //89bb92 koyusu
   },
   comments:{
-    position:'relative',
-    right:'75%',
     fontStyle:'italic',
     color:'#557B83',
   },
