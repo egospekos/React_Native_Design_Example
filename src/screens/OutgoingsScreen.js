@@ -51,7 +51,7 @@ export default function OutgoingsScreen({navigation}){
                 onPress={()=>{NavToEventDetails()}}
                 >
                 <View style={eventStyles.cardCategory}>
-                  <Text>kahve</Text>
+                  <Text style={eventStyles.categoryText}>kahve</Text>
                 </View>
                 </TouchableOpacity>
               </View>
@@ -83,7 +83,7 @@ export default function OutgoingsScreen({navigation}){
                   onPress={()=>{NavToEventDetails()}}
                   >
                   <View style={eventStyles.cardCategory}>
-                    <Text>spor</Text>
+                    <Text style={eventStyles.categoryText}>spor</Text>
                   </View>
                   </TouchableOpacity>
                 </View>
@@ -183,6 +183,13 @@ export default function OutgoingsScreen({navigation}){
       paddingTop:5,
       flex:4,
       color:'#557B83',
+      fontSize:18,
+      fontWeight:'500',
+    },
+    categoryText:{
+      fontSize:18,
+      fontWeight:'500',
+      color: '#557B83',
     },
     cardCategory:{
       width:75,
@@ -201,6 +208,8 @@ export default function OutgoingsScreen({navigation}){
     },
     cardDesc:{
       color:'#557B83',
+      fontSize:17,
+      fontWeight:'500',
     },
     cardFooter:{
       flexDirection:'row',
@@ -248,6 +257,9 @@ export default function OutgoingsScreen({navigation}){
     comments:{
       fontStyle:'italic',
       color:'#557B83',
+      fontSize:17,
+      fontWeight:'500',
+      paddingLeft:3,
     },
     addEventBar:{
   

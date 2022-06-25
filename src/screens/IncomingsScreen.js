@@ -59,7 +59,7 @@ export default function IncomingsScreen({navigation}){
                         onPress={()=>{selectCategory(event.id)}}
                         >
                           <View style={eventStyles.cardCategory}>
-                            <Text>{event.category}</Text>
+                            <Text style={eventStyles.categoryText}>{event.category}</Text>
                           </View>
                         </TouchableOpacity>
                       </View>
@@ -143,6 +143,13 @@ const eventStyles = StyleSheet.create({
     paddingTop:5,
     color: '#557B83',
     flex:4,
+    fontSize:17,
+    fontWeight:'500',
+  },
+  categoryText:{
+    fontSize:18,
+    fontWeight:'500',
+    color: '#557B83',
   },
   cardCategory:{
     width:75,
@@ -162,6 +169,8 @@ const eventStyles = StyleSheet.create({
   cardDesc:{
     color:'#557B83',
     flex:1,
+    fontSize:16,
+    fontWeight:'500',
   },
   cardFooter:{
     alignItems:'center',
@@ -206,6 +215,8 @@ const eventStyles = StyleSheet.create({
     paddingTop:4,
     fontStyle:'italic',
     color:'#557B83',
+    fontSize:17,
+    fontWeight:'500',
   },
   cardBodyRow:{
     flex:1,

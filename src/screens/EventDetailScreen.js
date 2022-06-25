@@ -31,10 +31,10 @@ export default function EventDetailScreen({ route, navigation }){
           <View style={eventStyles.cardHeader}>
             <Text style={eventStyles.cardName}>{event.name}</Text>
             <TouchableOpacity
-            onPress={()=>{NavToEventDetails()}}
+            onPress={()=>{NavToEventDetails(1)}}
             >
               <View style={eventStyles.cardCategory}>
-                <Text>{event.category}</Text>
+                <Text style={eventStyles.categoryText}>{event.category}</Text>
               </View>
             </TouchableOpacity>
           </View>
@@ -117,6 +117,7 @@ export default function EventDetailScreen({ route, navigation }){
       color:'#A2D5AB',
       fontSize:20,
       paddingLeft:7,
+      fontWeight:'600',
     },
     commentCard:{
       //flex:1,
@@ -135,15 +136,19 @@ export default function EventDetailScreen({ route, navigation }){
     userName:{
       paddingTop:3,
       paddingLeft:5,
-      color:'#A2D5AB',
-      fontSize:17,
+      color:'#557B83',
+      fontSize:19,
+      fontWeight:'600',
     },
     body:{
       padding:5,
     },
     text:{
       fontSize:15,
-      color:'#A2D5AB',
+      //color:'#A2D5AB',
+      color:'#557B83',
+      fontSize:17,
+      fontWeight:'500',
     },
   });
   const screenStyle = StyleSheet.create({
@@ -177,6 +182,9 @@ export default function EventDetailScreen({ route, navigation }){
       paddingTop:5,
       flex:4,
       color:'#557B83',
+      color:'#557B83',
+      fontSize:19,
+      fontWeight:'700',
     },
     cardCategory:{
       width:75,
@@ -195,6 +203,8 @@ export default function EventDetailScreen({ route, navigation }){
     },
     cardDesc:{
       color:'#557B83',
+      fontSize:18,
+      fontWeight:'500',
     },
     cardFooter:{
       alignItems:'center',
@@ -236,5 +246,10 @@ export default function EventDetailScreen({ route, navigation }){
     },
     addEventBar:{
   
+    },
+    categoryText:{
+      fontSize:19,
+      fontWeight:'500',
+      color:'#557B83',
     },
   });

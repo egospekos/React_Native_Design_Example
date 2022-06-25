@@ -90,7 +90,7 @@ const HomeScreen = ({navigation}) => {
                   <View key={event.id}>
                     <View style={categoryStyles.card}>
                       <FontAwesome name="tag" size={30} color="#95c89e" />
-                      <Text>{event.category}</Text>
+                      <Text style={categoryStyles.tagsText}>{event.category}</Text>
                     </View>
                   </View>
                 </TouchableOpacity>
@@ -126,7 +126,7 @@ const HomeScreen = ({navigation}) => {
                         onPress={()=>{NavToEventDetails()}}
                         >
                           <View style={eventStyles.cardCategory}>
-                            <Text>{event.category}</Text>
+                            <Text style={eventStyles.categoryText}>{event.category}</Text>
                           </View>
                         </TouchableOpacity>
                       </View>
@@ -193,6 +193,13 @@ const eventStyles = StyleSheet.create({
     paddingTop:5,
     flex:4,
     color:'#557B83',
+    fontSize:18,
+    fontWeight:'600',
+  },
+  categoryText:{
+    color:'#557B83',
+    fontSize:17,
+    fontWeight:'600',
   },
   cardCategory:{
     width:75,
@@ -211,6 +218,8 @@ const eventStyles = StyleSheet.create({
   },
   cardDesc:{
     color:'#557B83',
+    fontSize:16,
+    fontWeight:'500',
   },
   cardFooter:{
     flexDirection:'row',
@@ -256,8 +265,11 @@ const eventStyles = StyleSheet.create({
     color:'#557B83', //89bb92 koyusu
   },
   comments:{
+    paddingLeft:4,
     fontStyle:'italic',
     color:'#557B83',
+    fontSize:17,
+    fontWeight:'600',
   },
   addEventBar:{
 
@@ -308,6 +320,11 @@ const categoryStyles = StyleSheet.create({
     alignItems:'center',
     justifyContent:'center',
     borderRadius:10,
+  },
+  tagsText:{
+    color:'#557B83',
+    fontSize:17,
+    fontWeight:'600',
   }
 });
 
