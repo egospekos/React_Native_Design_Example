@@ -36,9 +36,9 @@ export default function IncomingsScreen({navigation}){
   }
 
   const [Events,setEvents] = useState([
-    {id:1,name:'Arkadaşlarımızla kahve içiyoruz',startDate:'16-16-2016',endDate:'7-7-2017',insanbir:'Oğuz Türk',insaniki:'Egemen Aydın',userid:2,active:true,category:'kahve'},
+    {id:1,name:'Arkadaşlarımızla kahve içiyoruz',startDate:'16-16-2016',endDate:'7-7-2017',insanbir:'Arif',insaniki:'Serdar',userid:2,active:true,category:'kahve'},
   
-    {id:2,name:'Futbol maçı',startDate:'16-16-2016',endDate:'7-7-2017',insanbir:'Oğuz Türk',insaniki:'Egemen Aydın',userid:2,active:true,category:'Spor'},
+    {id:2,name:'Futbol maçı',startDate:'16-16-2016',endDate:'7-7-2017',insanbir:'Emine',insaniki:'Aylin',userid:2,active:true,category:'Spor'},
   ])
 
     return(
@@ -105,7 +105,7 @@ export default function IncomingsScreen({navigation}){
                       <View style={eventStyles.cardFooter}>
                         <View style={eventStyles.commentPack}>
                           <FontAwesome name="comments" size={30} color="#95c89e" />
-                          <Text style={eventStyles.comments}>(3)</Text>
+                          <Text style={eventStyles.comments}>(1)</Text>
                         </View>
                       </View>
                     </View>

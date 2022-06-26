@@ -45,11 +45,11 @@ const HomeScreen = ({navigation}) => {
 
     {id:2,name:'Futbol maçı',startDate:'16-16-2016',endDate:'7-7-2017',description:'11-11 halısaha yapacağız kalecimiz eksik',userid:3,active:true,category:'halısaha'},
 
-    {id:3,name:'Ders çalışma',startDate:'16-16-2016',endDate:'7-7-2017',description:'kpss çalışcam 1 hafta kütüphanede eşlik edecek badi arıyorum',userid:4,active:true,category:'ders'},
+    {id:3,name:'Ders çalışma',startDate:'16-16-2016',endDate:'7-7-2017',description:'Kpss çalışacağım 1 hafta kütüphanede eşlik edecek badi arıyorum. Ders çalışmaya teşvik edecek biri lazım.',userid:4,active:true,category:'ders'},
 
-    {id:4,name:'Ders çalışma',startDate:'16-16-2016',endDate:'7-7-2017',description:'kpss çalışcam 1 hafta kütüphanede eşlik edecek badi arıyorum',userid:5,active:true,category:'ders'},
+    {id:4,name:'İstanbul yolcusuyum',startDate:'16-16-2016',endDate:'7-7-2017',description:'Haftasonu arabamla İzmir-İstanbul yapcağım. Benzin parasına ortak olacak badi arıyorum.',userid:5,active:true,category:'yolculuk'},
 
-    {id:5,name:'Ders çalışma',startDate:'16-16-2016',endDate:'7-7-2017',description:'kpss çalışcam 1 hafta kütüphanede eşlik edecek badi arıyorum',userid:6,active:true,category:'ders'},
+    {id:5,name:'Öğrenci köyünde müzik gecesi',startDate:'16-16-2016',endDate:'7-7-2017',description:'Meydanda saat üçte gitar çalacağız.',userid:6,active:true,category:'etkinlik'},
 
     
   ])

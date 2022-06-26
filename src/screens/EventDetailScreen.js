@@ -16,9 +16,9 @@ function applyEvent(){
 }
 
 const event={};
-event.name="Kahve içiyoruzzzz";
+event.name="Arkadaşlarımızla kahve içiyoruz";
 event.category="kahve";
-event.description="arabicada kahve içcez adam lazım her zamanki gibi hadi çıkın çıkın gelin";
+event.description="Akşam kahvecide toplanıyoruz. Katılmak isteyenler gelebilir.";
 export default function EventDetailScreen({ route, navigation }){
   const { eventId} = route.params;
   const NavToUsersDetails=(user_id)=>{
