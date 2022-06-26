@@ -9,6 +9,8 @@ import {
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import DatePicker from 'react-native-date-picker'
 import { TouchableOpacity } from 'react-native-gesture-handler';
+import axios from 'axios';
+
 
 
 
@@ -20,12 +22,38 @@ export default function CreateEventScreen(){
   const [date, setDate] = useState(new Date());
   const [open, setOpen] = useState(false);
   function SubmitEvent(){
-    let event={};
-    event.Name=name;
-    event.Description=description;
-    event.Category=category;
-    event.Date=date;
-    console.log(event);
+    // let event={};
+    // event.userId=1;
+    // event.title=name;
+    // event.text=description;
+    // event.categoryId=category;
+    // event.baslangicTarihi=date;
+    // console.log(event);
+
+    axios.post('http://10.0.2.2:8080/events', {
+      // 'userId':3,
+      // 'userName': "silinecek kişi",
+      // 'title':name,
+      // 'text':description,
+      // 'categoryId':category,
+      // 'baslangicTarihi':date,
+      // 'isActive':true,
+      // 'bitisTarihi':date,
+        userId: 2,
+        categoryId: 1,
+        title: name,
+        userName: "silinecek kişi",
+        isActive:true,
+        text: description,
+        baslangicTarihi: date,
+        bitisTarihi: date
+    })
+      .then(function (response) {
+          console.log(response);
+      })
+      .catch(function (error) {
+          console.log(error);
+      });
   }
   
     return(
@@ -63,7 +91,7 @@ export default function CreateEventScreen(){
             onChangeText={newText => setCategory(newText)}
             //value={number}
             placeholder="Category"
-            //keyboardType="numeric"
+            keyboardType="numeric"
             />
           </View>
         </View>
@@ -98,6 +126,7 @@ export default function CreateEventScreen(){
         modal
         open={open}
         date={date}
+        mode='datetime'
         onConfirm={(date) => {
           setOpen(false)
           setDate(date)

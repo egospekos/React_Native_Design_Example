@@ -46,17 +46,17 @@ export default function OutgoingsScreen({navigation}){
           <View key={1}>
             <View style={eventStyles.card}>
               <View style={eventStyles.cardHeader}>
-                <Text style={eventStyles.cardName}>kahveci</Text>
+                <Text style={eventStyles.cardName}>Kahve içiyoruz</Text>
                 <TouchableOpacity
                 onPress={()=>{NavToEventDetails()}}
                 >
                 <View style={eventStyles.cardCategory}>
-                  <Text style={eventStyles.categoryText}>kahve</Text>
+                  <Text style={eventStyles.categoryText}>Kahve</Text>
                 </View>
                 </TouchableOpacity>
               </View>
             <View style={eventStyles.cardBody}>
-              <Text style={eventStyles.cardDesc}>kahve içmeye ya hadi</Text>
+              <Text style={eventStyles.cardDesc}>Kahve içeceğiz gelmek isteyen var mı?</Text>
             </View>
             <View style={eventStyles.cardFooter}>
               <View style={eventStyles.footerCommentBox}>
@@ -78,17 +78,17 @@ export default function OutgoingsScreen({navigation}){
             <View key={1}>
               <View style={eventStyles.card}>
                 <View style={eventStyles.cardHeader}>
-                  <Text style={eventStyles.cardName}>halısaha</Text>
+                  <Text style={eventStyles.cardName}>Halısaha</Text>
                   <TouchableOpacity
                   onPress={()=>{NavToEventDetails()}}
                   >
                   <View style={eventStyles.cardCategory}>
-                    <Text style={eventStyles.categoryText}>spor</Text>
+                    <Text style={eventStyles.categoryText}>Spor</Text>
                   </View>
                   </TouchableOpacity>
                 </View>
                 <View style={eventStyles.cardBody}>
-                <Text style={eventStyles.cardDesc}>kaleci eksik</Text>
+                <Text style={eventStyles.cardDesc}>Kalecimiz eksik</Text>
                 </View>
                 <View style={eventStyles.cardFooter}>
                   <View style={eventStyles.footerCommentBox}>

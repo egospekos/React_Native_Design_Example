@@ -1,4 +1,4 @@
-import React,{ useState } from 'react';
+import React,{ useEffect, useState } from 'react';
 import {
   StyleSheet,
   Text,
@@ -11,6 +11,7 @@ import {
 } from 'react-native';
 //import { TextInput } from 'react-native-gesture-handler';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import axios from 'axios';
 
 
 
@@ -31,6 +32,26 @@ const likeEvent = (event_id) => {
 }
 
 const HomeScreen = ({navigation}) => {
+  
+  const [Events,setEvents] = useState([]);
+  const [Categories,setCategories] = useState([]);
+  // fetchEventList();
+  // fetchCategoryList();
+  useEffect(() => {
+    fetchEventList();
+    fetchCategoryList();
+  }, []);
+  const fetchEventList = () =>{
+    axios.get(`http://10.0.2.2:8080/events`).then((response) => setEvents(response.data));
+  }
+  const fetchCategoryList = () =>{
+    axios.get(`http://10.0.2.2:8080/categories`).then((response) => {
+      console.log(response.data);
+      setCategories(response.data);
+    });
+  }
+  
+
   const NavToEventCreate=()=>{
     navigation.navigate('CreateEvent');
   }
@@ -40,19 +61,7 @@ const HomeScreen = ({navigation}) => {
     navigation.navigate('EventDetails',{eventId: event_id});
   }
 
-  const [Events,setEvents] = useState([
-    {id:1,name:'Arkadaşlarımızla kahve içiyoruz',startDate:'16-16-2016',endDate:'7-7-2017',description:'Akşam kahvecide toplanıyoruz. Katılmak isteyenler gelebilir.',userid:2,active:true,category:'kahve'},
-
-    {id:2,name:'Futbol maçı',startDate:'16-16-2016',endDate:'7-7-2017',description:'11-11 halısaha yapacağız kalecimiz eksik',userid:3,active:true,category:'halısaha'},
-
-    {id:3,name:'Ders çalışma',startDate:'16-16-2016',endDate:'7-7-2017',description:'Kpss çalışacağım 1 hafta kütüphanede eşlik edecek badi arıyorum. Ders çalışmaya teşvik edecek biri lazım.',userid:4,active:true,category:'ders'},
-
-    {id:4,name:'İstanbul yolcusuyum',startDate:'16-16-2016',endDate:'7-7-2017',description:'Haftasonu arabamla İzmir-İstanbul yapcağım. Benzin parasına ortak olacak badi arıyorum.',userid:5,active:true,category:'yolculuk'},
-
-    {id:5,name:'Öğrenci köyünde müzik gecesi',startDate:'16-16-2016',endDate:'7-7-2017',description:'Meydanda saat üçte gitar çalacağız.',userid:6,active:true,category:'etkinlik'},
-
-    
-  ])
+  
 
   const [categories,setcategories] = useState([
     {id:15,name:'Kahve masasında kadın eksik',startDate:'16-16-2016',endDate:'7-7-2017',description:'Akşam arabicada toplanıyoruz arkadaşlar. Ama full erkeğiz bi tane karı lazım gelmek isteyen başvuru atsın herkesi kabul ediyoruz.',userid:2,active:true,category:'kahve'},
@@ -60,8 +69,8 @@ const HomeScreen = ({navigation}) => {
 
 
   return (
-    <View>
-      <View style={homeStyles.container}>
+    <View style={homeStyles.container}>
+      <View >
       
 
         {/* <View style={homeStyles.topBar}>
@@ -81,16 +90,16 @@ const HomeScreen = ({navigation}) => {
         </View> */}
         <ScrollView horizontal={true}>
           {
-            Events.map((event)=>{
+            Categories.map((category)=>{
               return(
                 <TouchableOpacity
-                onPress={()=>{selectCategory(event.id)}}
+                onPress={()=>{selectCategory(category.id)}}
                 >
 
-                  <View key={event.id}>
+                  <View key={category.id}>
                     <View style={categoryStyles.card}>
                       <FontAwesome name="tag" size={30} color="#95c89e" />
-                      <Text style={categoryStyles.tagsText}>{event.category}</Text>
+                      <Text style={categoryStyles.tagsText}>{category.name}</Text>
                     </View>
                   </View>
                 </TouchableOpacity>
@@ -121,22 +130,23 @@ const HomeScreen = ({navigation}) => {
                   <View key={event.id}>
                     <View style={eventStyles.card}>
                       <View style={eventStyles.cardHeader}>
-                        <Text style={eventStyles.cardName}>{event.name}</Text>
+                        <Text style={eventStyles.cardName}>{event.title}</Text>
                         <TouchableOpacity
                         onPress={()=>{NavToEventDetails()}}
                         >
                           <View style={eventStyles.cardCategory}>
-                            <Text style={eventStyles.categoryText}>{event.category}</Text>
+                            <Text style={eventStyles.categoryText}>{event.categoryName}</Text>
                           </View>
                         </TouchableOpacity>
                       </View>
                       <View style={eventStyles.cardBody}>
-                        <Text style={eventStyles.cardDesc}>{event.description}</Text>
+                        <Text style={eventStyles.cardDesc}>{event.text}</Text>
                       </View>
                       <View style={eventStyles.cardFooter}>
                         <View style={eventStyles.footerCommentBox}>
                           <FontAwesome name="comments" size={30} color="#95c89e" />
                           <Text style={eventStyles.comments}>(3)</Text>
+                          <Text style={eventStyles.tarihText}>{event.baslangicTarihi}</Text>
                         </View>
                         <View style={eventStyles.footerButtonBox}>
                           <TouchableOpacity
@@ -181,6 +191,10 @@ const eventStyles = StyleSheet.create({
     // shadowOffset: {width:-10, height: 25},
     // shadowOpacity: 1,
     // shadowRadius: 15,
+  },
+  tarihText:{
+    fontSize:15,
+    paddingLeft:8,
   },
   cardHeader:{
     alignItems:'center',
@@ -278,6 +292,7 @@ const eventStyles = StyleSheet.create({
 const homeStyles = StyleSheet.create({
   container:{
     backgroundColor:'#E5EFC1',
+    flex:1,
   },
   topBar:{
     justifyContent:'center',

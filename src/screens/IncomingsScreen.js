@@ -36,7 +36,7 @@ export default function IncomingsScreen({navigation}){
   }
 
   const [Events,setEvents] = useState([
-    {id:1,name:'Arkadaşlarımızla kahve içiyoruz',startDate:'16-16-2016',endDate:'7-7-2017',insanbir:'Arif',insaniki:'Serdar',userid:2,active:true,category:'kahve'},
+    {id:1,name:'Kahve içiyoruz',startDate:'16-16-2016',endDate:'7-7-2017',insanbir:'Arif',insaniki:'Serdar',userid:2,active:true,category:'Kahve'},
   
     {id:2,name:'Futbol maçı',startDate:'16-16-2016',endDate:'7-7-2017',insanbir:'Emine',insaniki:'Aylin',userid:2,active:true,category:'Spor'},
   ])

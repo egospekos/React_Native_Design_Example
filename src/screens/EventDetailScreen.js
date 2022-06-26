@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React,{useEffect,useState} from 'react';
 import {
   StyleSheet,
   Text,
@@ -6,7 +6,7 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
-
+import axios from 'axios';
 function likeEvent(){
 
 }
@@ -20,47 +20,51 @@ event.name="Arkadaşlarımızla kahve içiyoruz";
 event.category="kahve";
 event.description="Akşam kahvecide toplanıyoruz. Katılmak isteyenler gelebilir.";
 export default function EventDetailScreen({ route, navigation }){
+  const [Event,setEvent] = useState('');
   const { eventId} = route.params;
+  useEffect(() => {
+    fetchEventList();
+  }, []);
+  const fetchEventList = () =>{
+    axios.get(`http://10.0.2.2:8080/events/`+eventId).then((response) => {
+      
+    setEvent(response.data);
+    });
+  }
+
+  
   const NavToUsersDetails=(user_id)=>{
     navigation.navigate('UsersDetails',{userId: user_id});
   }
     return(
       <View style={screenStyle.container}>
         
-        <View style={eventStyles.card}>
-          <View style={eventStyles.cardHeader}>
-            <Text style={eventStyles.cardName}>{event.name}</Text>
-            <TouchableOpacity
-            onPress={()=>{NavToEventDetails(1)}}
-            >
-              <View style={eventStyles.cardCategory}>
-                <Text style={eventStyles.categoryText}>{event.category}</Text>
-              </View>
-            </TouchableOpacity>
-          </View>
-          <View style={eventStyles.cardBody}>
-            <Text style={eventStyles.cardDesc}>{event.description}</Text>
-          </View>
-          <View style={eventStyles.cardFooter}>
-            {/* <View>
-              <Text style={eventStyles.comments}>Yorumlar(3)</Text>
-            </View>
-            <TouchableOpacity
-            onPress={()=>{likeEvent(event.id)}}
-            >
-              <View style={eventStyles.favButton}>
-                <Text style={eventStyles.favButtonText}>Beğen</Text>
-              </View>
-            </TouchableOpacity>
-            <TouchableOpacity
-            onPress={()=>{applyEvent(event.id)}}
-            >
-              <View style={eventStyles.applyButton}>
-                <Text style={eventStyles.applyButtonText}>Başvur</Text>
-              </View>
-            </TouchableOpacity> */}
-          </View>
-        </View>
+          {
+            
+            
+                <View style={eventStyles.card}>
+                  <View style={eventStyles.cardHeader}>
+                    <Text style={eventStyles.cardName}>{Event.title}</Text>
+                    <TouchableOpacity
+                    onPress={()=>{NavToEventDetails(1)}}
+                    >
+                      <View style={eventStyles.cardCategory}>
+                        <Text style={eventStyles.categoryText}>{Event.categoryName}</Text>
+                      </View>
+                      
+                    </TouchableOpacity>
+                  </View>
+                  <View style={eventStyles.cardBody}>
+                    <Text style={eventStyles.cardDesc}>{Event.text}</Text>
+                  </View>
+                  <View style={eventStyles.cardFooter}>
+                    <Text style={eventStyles.tarihText}>{Event.baslangicTarihi}</Text>
+                  </View>
+                </View>
+              
+          }
+        
+        
         <View style={commentStyle.commentsContainer}>
           <View style={commentStyle.Header}>
             <FontAwesome name="comments" size={30} color="#95c89e" />
@@ -171,6 +175,11 @@ export default function EventDetailScreen({ route, navigation }){
       // shadowOpacity: 1,
       // shadowRadius: 15,
     },
+    tarihText:{
+    fontSize:15,
+    paddingLeft:8,
+    paddingTop:50,
+  },
     cardHeader:{
       alignItems:'center',
       justifyContent:'center',
@@ -209,7 +218,7 @@ export default function EventDetailScreen({ route, navigation }){
     cardFooter:{
       alignItems:'center',
       justifyContent:'flex-end',
-      flexDirection:'row',
+      flexDirection:'column',
       margin:3,
     },
     favButton:{
